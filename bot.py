@@ -20,7 +20,7 @@ client = UMFutures(key=api_key, secret=api_secret, base_url="https://fapi.binanc
 
 # --- Strateji Ayarları ---
 mode               = "long"   # "long" veya "short"
-symbol             = "BATUSDT"
+symbol             = "ARBUSDT"
 ws_symbol          = symbol.lower()
 leverage           = 20
 initial_usd        = 60
