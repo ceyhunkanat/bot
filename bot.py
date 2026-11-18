@@ -231,7 +231,7 @@ async def get_cached_position(force=False):
 async def price_watcher():
     global order_count, liq_triggered_flag, last_order_time, total_usd, last_usd
 
-    uri = f"wss://fstream.binance.com/public/ws/{ws_symbol}@bookTicker"
+    uri = f"wss://fstream.binance.com/market/ws/{ws_symbol}@markPrice@1s"
     set_leverage()
     set_margin_type()
 
@@ -264,7 +264,7 @@ async def price_watcher():
                         break
 
                     data  = json.loads(msg)
-                    price = float(data.get("a") or 0)
+                    price = float(data.get("p") or 0)   # markPrice stream'inde fiyat alanı "p"
 
                     if price <= 0:
                         continue
